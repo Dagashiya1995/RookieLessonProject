@@ -1,4 +1,14 @@
+# coding: utf-8
 class UsersController < ApplicationController
+  before_action :login_check
+
+  
+  #def login_check
+  #  return redirect_to new_login_path, alert: 'ログインしていません' if session[:user_id] == nil
+  #end
+  
+    
+  
   def index
     @users = User.all
   end
@@ -29,7 +39,7 @@ class UsersController < ApplicationController
                 grade: user_params['grade'] ,
                 snum: user_params['snum'],
                 account: user_params['account'],
-                password: user_params['password']
+                password:  Digest::SHA256.hexdigest(user_params['password'])
                )
     redirect_to users_path
   end
