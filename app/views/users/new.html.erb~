@@ -1,3 +1,0 @@
-<h1>ユーザー新規作成</h1>
-
-<%= render partial: 'form', locals: { submit_text : '作成' } %>
