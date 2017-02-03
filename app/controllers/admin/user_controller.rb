@@ -1,7 +1,8 @@
 # coding: utf-8
-class UsersController < ApplicationController
+class Admin::BaseController < ApplicationController
+  class Admin::UserController < Admin::BaseController
   before_action :login_check
-  before_action :authenticate_admin!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_admin!
 
   
   #def login_check
@@ -52,4 +53,5 @@ class UsersController < ApplicationController
     user.destroy
     redirect_to users_path
   end
+end
 end

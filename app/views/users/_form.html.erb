@@ -19,5 +19,14 @@
 <%= f.password_field :password %>
 <br />
 
+<%= f.label :password_confirmation, 'パスワード(確認用)'%>
+<%= f.password_field :password %>
+<br />
+
+<%= f.label :is_admin, '管理者権限'%>
+<%= f.radio_button :is_admin %>
+<br />
+
+
 <%= f.submit submit_text%>
 <% end %>
