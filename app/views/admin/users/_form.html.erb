@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>
+<%= form_for [:admin, @user] do |f| %>
 <%= f.label :grade ,'学年'%>
 <%= f.text_field :grade %>
 <br />
@@ -20,9 +20,12 @@
 <br />
 
 <%= f.label :password_confirmation, 'パスワード(確認用)'%>
-<%= f.password_field :password %>
+<%= f.password_field :password_confirmation %>
 <br />
 
+<%= f.label :is_admin, '管理者権限'%>
+<%= f.check_box :is_admin %>
+<br />
 
 
 <%= f.submit submit_text%>
