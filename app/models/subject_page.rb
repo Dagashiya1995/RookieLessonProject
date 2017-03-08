@@ -1,0 +1,2 @@
+class SubjectPage < ApplicationRecord
+end

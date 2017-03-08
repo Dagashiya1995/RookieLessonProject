@@ -1,0 +1,16 @@
+<%= form_for @subject_page do |f| %>
+
+<%= f.label :title, 'タイトル'%>
+<%= f.text_field :title %>
+<br />
+
+<%= f.label :category, 'カテゴリ'%>
+<%= f.text_field :category %>
+<br />
+
+<%= f.label :body, '本文'%>
+<%= f.text_field :body %>
+<br />
+
+<%= f.submit submit_text%>
+<% end %>

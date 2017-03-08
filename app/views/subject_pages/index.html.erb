@@ -1,0 +1,23 @@
+<h1>SubjectPages#index</h1>
+<p>Find me in app/views/subject_pages/index.html.erb</p>
+
+<table>
+  <thead>
+    <th>タイトル</th>
+    <th>カテゴリ</th>
+    <th>更新日</th>
+    <th>作成日</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @subject_pages.each do |subject_page| %>
+    <tr>
+      <td><%= subject_page.title %></td>
+      <td><%= subject_page.category %></td>
+      <td><%= subject_page.updated_at %></td>
+      <td><%= subject_page.created_at  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
