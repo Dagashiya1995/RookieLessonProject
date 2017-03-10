@@ -27,3 +27,32 @@ User.create(name: '石井玲央',
             )
 
 end
+
+if SubjectPage.count == 0
+  SubjectPage.create(title: "ue0",
+                     body: "hoge",
+                     user_id: 1
+                    )
+  SubjectPage.create(title: "ue1",
+                     body: "hoge",
+                     user_id: 1
+                    )
+  SubjectPage.create(title: "ishii0",
+                     body: "hoge",
+                     user_id: 2
+                    )
+  SubjectPage.create(title: "ishii",
+                     body: "hoge",
+                     user_id: 2
+                    )
+  SubjectPage.create(title: "tsuji0",
+                     body: "hoge",
+                     user_id: 3
+                    )
+  SubjectPage.create(title: "tsuji1",
+                     body: "hoge",
+                     user_id: 3
+                    )
+  
+  
+end

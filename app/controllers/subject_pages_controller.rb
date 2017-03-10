@@ -24,7 +24,7 @@ class SubjectPagesController < ApplicationController
                        category: subject_page_params['category'],
                        body: subject_page_params['body']
                       )
-    redirect_to subject_pages_path
+    redirect_to user_subject_pages_path(subject_page.user_id)
   end
 
   def new
@@ -39,7 +39,7 @@ class SubjectPagesController < ApplicationController
                        body: subject_page['body'],
                        user_id: session[:user_id]
                       )
-    redirect_to subject_pages_path
+    redirect_to user_subject_pages_path
   end
 
   def destroy

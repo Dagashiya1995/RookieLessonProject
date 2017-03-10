@@ -1,7 +1,7 @@
 <h1>SubjectPages#index</h1>
 <p>Find me in app/views/subject_pages/index.html.erb</p>
-<%= link_to '新規作成', new_subject_page_path %>
 <% User.find(session[:user_id]).account %>
+<%= link_to '新規作成', new_user_subject_page_path(params[:user_id].to_i) %>
 
 <table>
   <thead>
@@ -13,14 +13,16 @@
   </thead>
   <tbody>
     <% @subject_pages.each do |subject_page| %>
-    <tr>
-      <td><%= link_to subject_page.title, subject_page_path(subject_page), method: 'get' %></td>
-      <td><%= subject_page.category %></td>
-      <td><%= subject_page.updated_at %></td>
-      <td><%= subject_page.created_at  %></td>
-      <td><%= link_to '編集', edit_subject_page_path(subject_page) %></td>
-      <td><%= link_to '削除', subject_page_path(subject_page), method: 'delete' %></td>
-    </tr>
+    <% if params[:user_id].to_i == subject_page.user_id %>
+        <tr>
+          <td><%= link_to subject_page.title, user_subject_page_path(params[:user_id], subject_page.id), method: 'get' %></td>
+          <td><%= subject_page.category %></td>
+          <td><%= subject_page.updated_at %></td>
+          <td><%= subject_page.created_at  %></td>
+          <td><%= link_to '編集', edit_user_subject_page_path(params[:user_id].to_i, subject_page.id) %></td>
+          <td><%= link_to '削除', user_subject_page_path(params[:user_id].to_i, subject_page.id), method: 'delete' %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
