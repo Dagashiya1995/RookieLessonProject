@@ -10,6 +10,7 @@ class SubjectPagesController < ApplicationController
   end
 
   def show
+    @subject_page = SubjectPage.find(params[:id])
   end
 
   def edit
@@ -17,10 +18,11 @@ class SubjectPagesController < ApplicationController
   end
 
   def update
-    subject_page = params['subject_page']
-    SubjectPage.update(title: subject_page['title'],
-                       category: subject_page['category'] ,
-                       body: subject_page['body']
+    subject_page = SubjectPage.find(params[:id])
+    subject_page_params = params['subject_page']
+    subject_page.update(title: subject_page_params['title'],
+                       category: subject_page_params['category'],
+                       body: subject_page_params['body']
                       )
     redirect_to subject_pages_path
   end

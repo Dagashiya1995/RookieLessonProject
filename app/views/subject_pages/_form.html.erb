@@ -5,7 +5,10 @@
 <br />
 
 <%= f.label :category, 'カテゴリ'%>
-<%= f.text_field :category %>
+<label><%= f.radio_button :category, "文献調査" %>文献調査</label>
+<label><%= f.radio_button :category, "作業実践" %>作業実践</label>
+<label><%= f.radio_button :category, "制作実習" %>制作実習</label>
+<label><%= f.radio_button :category, "学会発表" %>学会発表</label>
 <br />
 
 <%= f.label :body, '本文'%>

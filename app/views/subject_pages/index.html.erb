@@ -7,7 +7,6 @@
   <thead>
     <th>タイトル</th>
     <th>カテゴリ</th>
-    <th>本文</th>
     <th>更新日</th>
     <th>作成日</th>
     <th></th>
@@ -15,9 +14,8 @@
   <tbody>
     <% @subject_pages.each do |subject_page| %>
     <tr>
-      <td><%= subject_page.title %></td>
+      <td><%= link_to subject_page.title, subject_page_path(subject_page), method: 'get' %></td>
       <td><%= subject_page.category %></td>
-       <td><%= subject_page.body %></td>
       <td><%= subject_page.updated_at %></td>
       <td><%= subject_page.created_at  %></td>
       <td><%= link_to '編集', edit_subject_page_path(subject_page) %></td>
