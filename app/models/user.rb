@@ -14,6 +14,7 @@
 #
 
 class User < ApplicationRecord
+  has_many :subject_pages
   validates_confirmation_of :password
   validates :snum, uniqueness: true
   validates :account, uniqueness: true

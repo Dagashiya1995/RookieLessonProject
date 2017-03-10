@@ -1,4 +1,10 @@
 class SubjectPagesController < ApplicationController
+  before_action(:user_check)
+  
+  def user_check
+    @user = User.find(session[:user_id]).account
+  end
+  
   def index
     @subject_pages = SubjectPage.all
   end
@@ -14,7 +20,7 @@ class SubjectPagesController < ApplicationController
     subject_page = params['subject_page']
     SubjectPage.update(title: subject_page['title'],
                        category: subject_page['category'] ,
-                       body: subject_page['body'],
+                       body: subject_page['body']
                       )
     redirect_to subject_pages_path
   end
@@ -25,9 +31,11 @@ class SubjectPagesController < ApplicationController
 
   def create
     subject_page = params['subject_page']
+    user = params['user']
     SubjectPage.create(title: subject_page['title'],
                        category: subject_page['category'] ,
                        body: subject_page['body'],
+                       user_id: session[:user_id]
                       )
     redirect_to subject_pages_path
   end

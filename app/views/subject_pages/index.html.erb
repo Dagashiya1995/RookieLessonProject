@@ -1,5 +1,7 @@
 <h1>SubjectPages#index</h1>
 <p>Find me in app/views/subject_pages/index.html.erb</p>
+<%= link_to '新規作成', new_subject_page_path %>
+<% User.find(session[:user_id]).account %>
 
 <table>
   <thead>
