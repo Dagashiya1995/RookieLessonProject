@@ -22,3 +22,20 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+## Create
+bundle exec rails generate controller names
+bundle exec rails generate model name
+
+## Change Gemfile
+bundle install
+
+## Change migrate
+rake db:migrate:reset
+
+## Run PostgreSQL
+pg_ctl -D data/ start
+
+## stop PostgreSQL
+pg_ctl -D data/ stop
+
+

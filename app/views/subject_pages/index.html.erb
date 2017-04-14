@@ -16,7 +16,6 @@
     <% if params[:user_id].to_i == subject_page.user_id %>
         <tr>
           <td><%= link_to subject_page.title, user_subject_page_path(params[:user_id], subject_page.id), method: 'get' %></td>
-          <td><%= subject_page.category %></td>
           <td><%= subject_page.updated_at %></td>
           <td><%= subject_page.created_at  %></td>
           <td><%= link_to '編集', edit_user_subject_page_path(params[:user_id].to_i, subject_page.id) %></td>

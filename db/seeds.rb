@@ -31,28 +31,56 @@ end
 if SubjectPage.count == 0
   SubjectPage.create(title: "ue0",
                      body: "hoge",
-                     user_id: 1
+                     user_id: 1,
+                     category_id: 0
                     )
   SubjectPage.create(title: "ue1",
                      body: "hoge",
-                     user_id: 1
+                     user_id: 1,
+                     category_id: 1
                     )
   SubjectPage.create(title: "ishii0",
                      body: "hoge",
-                     user_id: 2
+                     user_id: 2,
+                     category_id: 2
                     )
   SubjectPage.create(title: "ishii",
                      body: "hoge",
-                     user_id: 2
+                     user_id: 2,
+                     category_id: 3
                     )
   SubjectPage.create(title: "tsuji0",
                      body: "hoge",
-                     user_id: 3
+                     user_id: 3,
+                     category_id: 4
                     )
   SubjectPage.create(title: "tsuji1",
                      body: "hoge",
-                     user_id: 3
+                     user_id: 3,
+                     category_id: 0
                     )
   
   
+end
+
+if Category.count == 0
+   Category.create(name: "Biblio",
+                   category_number: "0000",
+                   )
+
+   Category.create(name: "Tech",
+                   category_number: "1000",
+                   )
+
+   Category.create(name: "Prac",
+                   category_number: "2000",
+                   )
+
+   Category.create(name: "Prog",
+                   category_number: "3000",
+                   )
+
+   Category.create(name: "Paper",
+                   category_number: "4000",
+                   )
 end

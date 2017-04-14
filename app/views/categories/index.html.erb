@@ -1,0 +1,18 @@
+Ctegory#index</h1>
+<h1>カテゴリ一覧</h1>
+
+<table>
+<thead>
+<th>カテゴリ名</th>
+<th>カテゴリ番号</th>
+<th></th>
+</thead>
+<tbody>
+<% @categorys.each do |category| %>
+<tr>
+<td><%= category.name %></td>
+<td><%= category.category_number %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
