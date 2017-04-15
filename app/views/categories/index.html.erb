@@ -10,8 +10,8 @@ Ctegory#index</h1>
 <tbody>
 <% @categorys.each do |category| %>
 <tr>
-<td><%= category.name %></td>
-<td><%= category.category_number %></td>
+<td><%= link_to category.name, user_category_subject_pages_path(params[:user_id],category.id), method: 'get' %></td>
+<td><%= sprintf("%04d\n", category.category_number) %></td>
 </tr>
 <% end %>
 </tbody>

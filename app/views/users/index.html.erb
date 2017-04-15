@@ -16,7 +16,7 @@
     <tr>
       <td><%= user.grade %></td>
       <td><%= user.snum %></td>
-      <td><%= link_to user.account, user_subject_pages_path(user.id), method: 'get' %></td>
+      <td><%= link_to user.account, user_categories_path(user.id), method: 'get' %></td>
       <td><%= user.name %></td>
   </tr>
     <% end %>
