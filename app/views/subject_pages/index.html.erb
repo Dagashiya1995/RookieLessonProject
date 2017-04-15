@@ -18,8 +18,10 @@
           <td><%= subject_page.category_id %></td>
           <td><%= subject_page.updated_at %></td>
           <td><%= subject_page.created_at  %></td>
-          <td><%= link_to '編集', edit_user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id) %></td>
-          <td><%= link_to '削除', user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id), method: 'delete' %></td>
+          <% if session[:user_id].to_i == subject_page.user_id %>
+            <td><%= link_to '編集', edit_user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id) %></td>
+            <td><%= link_to '削除', user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id), method: 'delete' %></td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>

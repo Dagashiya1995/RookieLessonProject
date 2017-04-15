@@ -1,9 +1,9 @@
 <h1>SubjectPages#show</h1>
 <p>Find me in app/views/subject_pages/show.html.erb</p>
 <table border = "1">
-  <tr><td><%= @subject_page.title %></td></tr>
-  <tr><td><%= @subject_page.created_at %></td></tr>
-  <tr><td><%= @subject_page.updated_at %></td></tr>
-  <tr><td><%= @subject_page.category %></td></tr>
-  <tr><td><%= @subject_page.body %></td></tr>
+  <tr><td>タイトル</td><td><%= @subject_page.title %></td></tr>
+  <tr><td>作成日</td><td><%= @subject_page.created_at %></td></tr>
+  <tr><td>更新日</td><td><%= @subject_page.updated_at %></td></tr>
+  <tr><td>カテゴリ</td><td><%= @subject_page.category_id %></td></tr>
+  <tr><td>内容</td><td><%= @subject_page.body %></td></tr>
 </table>
