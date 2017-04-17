@@ -3,6 +3,7 @@ class CreateSubjectPages < ActiveRecord::Migration[5.0]
     create_table :subject_pages do |t|
       t.string :title
       t.text :body
+      t.integer :number
       t.integer :user_id
       t.integer :category_id
 

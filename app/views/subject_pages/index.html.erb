@@ -5,7 +5,7 @@
 <table border = 1>
   <thead>
     <th>タイトル</th>
-    <th>カテゴリ</th>
+    <th>課題番号</th>
     <th>更新日</th>
     <th>作成日</th>
     <th></th>
@@ -15,7 +15,7 @@
     <% if params[:user_id].to_i == subject_page.user_id and params[:category_id].to_i == subject_page.category_id %>
         <tr>
           <td><%= link_to subject_page.title, user_category_subject_page_path(params[:user_id], params[:category_id], subject_page.id), method: 'get' %></td>
-          <td><%= subject_page.category_id %></td>
+          <td><%= sprintf("%04d\n", subject_page.number)  %></td>
           <td><%= subject_page.updated_at %></td>
           <td><%= subject_page.created_at  %></td>
           <% if session[:user_id].to_i == subject_page.user_id %>
