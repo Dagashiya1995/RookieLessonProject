@@ -61,7 +61,7 @@ if SubjectPage.count == 0
   
   SubjectPage.create(title: "ue1",
                      body: "hoge",
-                     number: 0010,
+                     number: 10,
                      user_id: 1,
                      category_id: 1
                     )

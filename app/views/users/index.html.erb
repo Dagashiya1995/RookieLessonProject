@@ -13,12 +13,12 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-    <tr>
-      <td><%= user.grade %></td>
-      <td><%= user.snum %></td>
-      <td><%= link_to user.account, user_categories_path(user.id), method: 'get' %></td>
-      <td><%= user.name %></td>
-  </tr>
+      <tr>
+        <td><%= user.grade %></td>
+        <td><%= user.snum %></td>
+        <td><%= link_to user.account, user_categories_path(user.id), method: 'get' %></td>
+        <td><%= user.name %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

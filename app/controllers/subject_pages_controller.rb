@@ -7,10 +7,12 @@ class SubjectPagesController < ApplicationController
   
   def index
     @subject_pages = SubjectPage.all
+    @category = Category.find(params[:category_id])
   end
 
   def show
     @subject_page = SubjectPage.find(params[:id])
+    @category = Category.find(params[:category_id])
   end
 
   def edit
@@ -21,10 +23,12 @@ class SubjectPagesController < ApplicationController
     subject_page = SubjectPage.find(params[:id])
     subject_page_params = params['subject_page']
     subject_page.update(title: subject_page_params['title'],
-                       category: subject_page_params['category'],
-                       body: subject_page_params['body']
+                       category_id: subject_page_params['category_id'],
+                       number: subject_page_params['number'],
+                       body: subject_page_params['body'],
+                       user_id: session[:user_id]
                       )
-    redirect_to user_subject_pages_path(subject_page.user_id)
+    redirect_to user_category_subject_pages_path(subject_page.user_id)
   end
 
   def new
@@ -35,16 +39,17 @@ class SubjectPagesController < ApplicationController
     subject_page = params['subject_page']
     user = params['user']
     SubjectPage.create(title: subject_page['title'],
-                       category: subject_page['category'] ,
+                       category_id: subject_page['category_id'] ,
+                       number: subject_page['number'],
                        body: subject_page['body'],
                        user_id: session[:user_id]
                       )
-    redirect_to user_subject_pages_path
+    redirect_to user_category_subject_pages_path
   end
 
   def destroy
     subject_page = SubjectPage.find(params[:id])
     subject_page.destroy
-    redirect_to subject_pages_path
+    redirect_to user_category_subject_pages_path
   end
 end

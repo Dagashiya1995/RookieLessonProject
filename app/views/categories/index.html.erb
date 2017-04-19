@@ -2,17 +2,17 @@ Ctegory#index</h1>
 <h1>カテゴリ一覧</h1>
 
 <table border = 1>
-<thead>
-<th>カテゴリ名</th>
-<th>カテゴリ番号</th>
-<th></th>
-</thead>
-<tbody>
-<% @categorys.each do |category| %>
-<tr>
-<td><%= link_to category.name, user_category_subject_pages_path(params[:user_id],category.id), method: 'get' %></td>
-<td><%= sprintf("%04d\n", category.category_number) %></td>
-</tr>
-<% end %>
-</tbody>
+  <thead>
+    <th>カテゴリ名</th>
+    <th>カテゴリ番号</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @categorys.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, user_category_subject_pages_path(params[:user_id],category.id), method: 'get' %></td>
+        <td><%= sprintf("%04d\n", category.category_number) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
