@@ -41,9 +41,9 @@ class SubjectPagesController < ApplicationController
     category = subject_page_params['category_id']
     user = params['user']
 
-    latestNumber = 0
+    latestNumber = (category.to_i - 1) * 1000
     @subject_pages.each do |subject_page|
-      if category.to_i == subject_page.category_id && subject_page.number.to_i > latestNumber
+      if category.to_i == subject_page.category_id && subject_page.number.to_i > latestNumber && subject_page.user_id == session[:user_id]
         latestNumber = subject_page.number.to_i
       end
     end
@@ -64,7 +64,7 @@ class SubjectPagesController < ApplicationController
     subject_page_destroy = SubjectPage.find(params[:id])
 
     @subject_pages.each do |subject_page|
-      if subject_page.category_id == subject_page_destroy.category_id && subject_page.number > subject_page_destroy.number
+      if subject_page.category_id == subject_page_destroy.category_id && subject_page.number > subject_page_destroy.number && subject_page.user_id == session[:user_id]
         subject_page.number = subject_page.number - 10
         subject_page.save
       end
