@@ -36,11 +36,22 @@ class SubjectPagesController < ApplicationController
   end
 
   def create
+    @subject_pages = SubjectPage.all
     subject_page_params = params['subject_page']
+    category = subject_page_params['category_id']
     user = params['user']
+
+    latestNumber = 0
+    @subject_pages.each do |subject_page|
+      if category.to_i == subject_page.category_id && subject_page.number.to_i > latestNumber
+        latestNumber = subject_page.number.to_i
+      end
+    end
+    number = latestNumber + 10
+
     subject_page = SubjectPage.new(title: subject_page_params['title'],
                                    category_id: subject_page_params['category_id'] ,
-                                   number: subject_page_params['number'],
+                                   number: number,
                                    body: subject_page_params['body'],
                                    user_id: session[:user_id]
                                   )

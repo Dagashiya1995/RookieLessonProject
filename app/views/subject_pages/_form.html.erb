@@ -12,9 +12,11 @@
   <label><%= f.radio_button :category_id, "5" %>学会発表</label>
   <br />
 
-  <%= f.label :number, '課題番号'%>
-  <%= f.text_field :number %>
-  <br />
+  <% if submit_text == '更新' %>
+    <%= f.label :number, '課題番号'%>
+    <%= f.text_field :number %>
+    <br />
+  <% end %>
 
 
   <%= f.label :body, '本文'%>
