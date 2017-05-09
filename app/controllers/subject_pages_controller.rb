@@ -28,7 +28,7 @@ class SubjectPagesController < ApplicationController
                        body: subject_page_params['body'],
                        user_id: session[:user_id]
                       )
-    redirect_to user_category_subject_pages_path(subject_page.user_id)
+    redirect_to user_category_subject_pages_path(subject_page.user_id, subject_page.category_id)
   end
 
   def new
@@ -36,15 +36,16 @@ class SubjectPagesController < ApplicationController
   end
 
   def create
-    subject_page = params['subject_page']
+    subject_page_params = params['subject_page']
     user = params['user']
-    SubjectPage.create(title: subject_page['title'],
-                       category_id: subject_page['category_id'] ,
-                       number: subject_page['number'],
-                       body: subject_page['body'],
-                       user_id: session[:user_id]
-                      )
-    redirect_to user_category_subject_pages_path
+    subject_page = SubjectPage.new(title: subject_page_params['title'],
+                                   category_id: subject_page_params['category_id'] ,
+                                   number: subject_page_params['number'],
+                                   body: subject_page_params['body'],
+                                   user_id: session[:user_id]
+                                  )
+    subject_page.save
+    redirect_to user_category_subject_pages_path(session[:user_id], subject_page.category_id)
   end
 
   def destroy
