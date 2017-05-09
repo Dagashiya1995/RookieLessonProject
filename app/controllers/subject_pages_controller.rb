@@ -60,8 +60,18 @@ class SubjectPagesController < ApplicationController
   end
 
   def destroy
-    subject_page = SubjectPage.find(params[:id])
-    subject_page.destroy
+    @subject_pages = SubjectPage.all
+    subject_page_destroy = SubjectPage.find(params[:id])
+
+    @subject_pages.each do |subject_page|
+      if subject_page.category_id == subject_page_destroy.category_id && subject_page.number > subject_page_destroy.number
+        subject_page.number = subject_page.number - 10
+        subject_page.save
+      end
+    end
+
+    subject_page_destroy.destroy
+
     redirect_to user_category_subject_pages_path
   end
 end
