@@ -12,18 +12,16 @@
   </thead>
   <tbody>
     <% @subject_pages.each do |subject_page| %>
-    <% if params[:user_id].to_i == subject_page.user_id and params[:category_id].to_i == subject_page.category_id %>
-        <tr>
-          <td><%= link_to subject_page.title, user_category_subject_page_path(params[:user_id], params[:category_id], subject_page.id), method: 'get' %></td>
-          <td><%= sprintf("%04d\n", subject_page.number)  %></td>
-          <td><%= subject_page.updated_at %></td>
-          <td><%= subject_page.created_at  %></td>
-          <% if session[:user_id].to_i == subject_page.user_id %>
-            <td><%= link_to '編集', edit_user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id) %></td>
-            <td><%= link_to '削除', user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id), method: 'delete' %></td>
-          <% end %>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= link_to subject_page.title, user_category_subject_page_path(params[:user_id], params[:category_id], subject_page.id), method: 'get' %></td>
+        <td><%= sprintf("%04d\n", subject_page.number)  %></td>
+        <td><%= subject_page.updated_at %></td>
+        <td><%= subject_page.created_at  %></td>
+        <% if session[:user_id].to_i == subject_page.user_id %>
+          <td><%= link_to '編集', edit_user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id) %></td>
+          <td><%= link_to '削除', user_category_subject_page_path(params[:user_id].to_i, params[:category_id].to_i, subject_page.id), method: 'delete' %></td>
+      </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>

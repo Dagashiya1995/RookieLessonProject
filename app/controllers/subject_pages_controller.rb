@@ -6,13 +6,12 @@ class SubjectPagesController < ApplicationController
   end
   
   def index
-    @subject_pages = SubjectPage.order('number DESC')
+    @subject_pages = SubjectPage.where(user_id: params[:user_id], category_id: params[:category_id]).reorder('number DESC')
     @category = Category.find(params[:category_id])
   end
 
   def show
     @subject_page = SubjectPage.find(params[:id])
-    @category = Category.find(params[:category_id])
   end
 
   def edit
