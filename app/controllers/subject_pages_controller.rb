@@ -12,6 +12,7 @@ class SubjectPagesController < ApplicationController
 
   def show
     @subject_page = SubjectPage.find(params[:id])
+    @category = Category.find(params[:category_id])
   end
 
   def edit
