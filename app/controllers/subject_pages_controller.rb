@@ -6,7 +6,7 @@ class SubjectPagesController < ApplicationController
   end
   
   def index
-    @subject_pages = SubjectPage.all
+    @subject_pages = SubjectPage.order('number DESC')
     @category = Category.find(params[:category_id])
   end
 
