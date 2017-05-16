@@ -1,6 +1,8 @@
 Ctegory#index</h1>
 <h1>カテゴリ一覧</h1>
 
+<%= link_to '課題ページ新規作成', new_user_category_subject_page_path(session[:user_id], 0) %>
+
 <table border = 1>
   <thead>
     <th>カテゴリ名</th>
@@ -15,3 +17,5 @@ Ctegory#index</h1>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'ユーザー一覧へ', users_path %>

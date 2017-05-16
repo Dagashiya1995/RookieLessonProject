@@ -25,3 +25,7 @@
   <% end %>
   </tbody>
 </table>
+
+<%= link_to 'ユーザー一覧へ', users_path %>
+<br>
+<%= link_to 'カテゴリ一覧へ', user_categories_path(session[:user_id]) %>

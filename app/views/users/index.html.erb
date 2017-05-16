@@ -2,6 +2,7 @@
 <%= link_to 'ログアウト', logout_path, method: 'delete' %>
 <h1>ユーザー一覧</h1>
 
+<%= link_to '課題ページ新規作成', new_user_category_subject_page_path(session[:user_id], 0) %>
 
 <table border = 1>
   <thead>
