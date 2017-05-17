@@ -20,12 +20,13 @@
   <% end %>
 
   <%= f.label :body, '本文' %>
-  <textarea id='editor' name='body' rows='8' cols='40'>
-  </textarea>
+  <%=  f.text_area :body, :size => '150x10', :id => 'editor' %>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css'>
   <script src='https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js'></script>
   <script>
-var simplemde = new SimpleMDE({ element: document.getElementById('editor') });
+(function() {
+  const simplemde = new SimpleMDE({ element: document.getElementById('editor') });
+})()
   </script>
  
 
