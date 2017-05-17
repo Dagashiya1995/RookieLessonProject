@@ -6,5 +6,5 @@
   <tr><td>更新日</td><td><%= @subject_page.updated_at %></td></tr>
   <tr><td>カテゴリ</td><td><%= @category.name %></td></tr>
   <tr><td>課題番号</td><td><%= sprintf("%04d\n", @subject_page.number) %></td></tr>
-  <tr><td>内容</td><td><%= @subject_page.body %></td></tr>
+  <tr><td>内容</td><td><%= markdown(@subject_page.body) %></td></tr>
 </table>

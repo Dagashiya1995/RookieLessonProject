@@ -6,7 +6,7 @@
   <br />
 
   <%= f.label :category_id, 'カテゴリ'%>
-  <label><%= f.radio_button :category_id, "1" %>文献調査</label>
+  <label><%= f.radio_button :category_id, "1", {:checked => true } %>文献調査</label>
   <label><%= f.radio_button :category_id, "2" %>技術検討</label>
   <label><%= f.radio_button :category_id, "3" %>作業実践</label>
   <label><%= f.radio_button :category_id, "4" %>制作実習</label>
